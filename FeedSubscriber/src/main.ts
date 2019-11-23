@@ -1,5 +1,7 @@
 import fs = require("fs");
 import KrakenClient = require("kraken-api");
+import { Price } from "../../protobuf/js/price_pb"
+import { Prices } from "../../protobuf/js/prices_pb"
 
 interface tickerPacket{
     // <pair_name> = pair name
