@@ -2,3 +2,5 @@ FeedSubscriber/node_modules/
 Keys/
 FeedSubscriber/build/
 FeedSubscriber/package-lock.json
+protobuf/js/
+protobuf/node_modules/
