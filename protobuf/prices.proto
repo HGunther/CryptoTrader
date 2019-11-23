@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "price.proto";
+
+message Prices {
+    repeated Price prices = 1;
+}

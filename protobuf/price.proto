@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "time.proto";
+
+message Price {
+    string currency = 1;
+    Time time = 2;
+    float price = 3;
+}
