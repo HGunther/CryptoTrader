@@ -7,7 +7,7 @@ PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 CPP_OUT_DIR="./cpp"
 JS_OUT_DIR="./js"
 PYTHON_OUT_DIR="./py"
- 
+
 protoc \
     --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \
     --cpp_out="${CPP_OUT_DIR}" \

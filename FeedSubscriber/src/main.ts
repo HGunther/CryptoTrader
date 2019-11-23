@@ -2,6 +2,9 @@ import fs = require("fs");
 import KrakenClient = require("kraken-api");
 import { Price } from "../../protobuf/js/price_pb"
 import { Prices } from "../../protobuf/js/prices_pb"
+import { Time } from "../../protobuf/js/time_pb"
+import zmq = require("zeromq");
+var sock = zmq.socket("push");
 
 interface tickerPacket{
     // <pair_name> = pair name
@@ -31,6 +34,10 @@ const key = fs.readFileSync('../Keys/Kraken.public.txt', { encoding: "utf8" });
 const secret = fs.readFileSync('../Keys/Kraken.private.txt', { encoding: "utf8" });
 const kraken = new KrakenClient(key, secret);
 
+const port = 6006;
+sock.bindSync("tcp://127.0.0.1:" + port);
+console.log("FeedSubscriber sending prices to port " + port);
+
 const delay = 3000 * 2;
 
 async function fetchData(): Promise<tickerPacket> {
@@ -41,6 +48,24 @@ async function fetchData(): Promise<tickerPacket> {
 
 function doAThingWithData(data: tickerPacket): void {
     console.info("Last trade: " + data.XXBTZUSD.c[1] + " units at " + data.XXBTZUSD.c[0] + " each.");
+
+    let now = new Date();
+    let time = new Time();
+    time.setYear(now.getFullYear());
+    time.setMonth(now.getMonth());
+    time.setDay(now.getDay());
+    time.setHour(now.getHours());
+    time.setMinute(now.getMinutes());
+    time.setSecond(now.getSeconds());
+
+    let price = new Price();
+    price.setTime(time);
+    price.setCurrency("XXBTZUSD");
+    price.setPrice(parseFloat(data.XXBTZUSD.c[0]));
+
+    let message = new Buffer(price.serializeBinary());
+    console.debug("Sending message: " + message);
+    sock.send(message);
 };
 
 

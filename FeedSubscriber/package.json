@@ -4,7 +4,9 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "kraken-api": "^1.0.0"
+    "@types/zeromq": "^4.6.2",
+    "kraken-api": "^1.0.0",
+    "zeromq": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.11"
