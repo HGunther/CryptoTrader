@@ -5,3 +5,5 @@ protobuf/js/
 protobuf/node_modules/
 protobuf/cpp/
 protobuf/py/
+DataStorer/build/
+DataStorer/node_modules/
