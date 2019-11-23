@@ -14,7 +14,7 @@ const formatPriceToRecord = function(price: Price):any{
     time.setSeconds(price.getTime().getSecond());
   
     let record = {};
-    record["price"] = price.getPrice();
+    record["price"] = new mongodb.Double(price.getPrice());
     record["time"] = time;
     
     return record;
