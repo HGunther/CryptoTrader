@@ -3,3 +3,5 @@ FeedSubscriber/node_modules/
 FeedSubscriber/build/
 protobuf/js/
 protobuf/node_modules/
+protobuf/cpp/
+protobuf/py/
