@@ -38,7 +38,9 @@ const port = 6006;
 sock.bindSync("tcp://127.0.0.1:" + port);
 console.log("FeedSubscriber sending prices to port " + port);
 
-const delay = 3000 * 2;
+// Kraken has a call rate limit https://www.kraken.com/en-us/features/api#api-call-rate-limit
+// The minimum delay should be 3 * 2 * 1000ms
+const delay = 60 * 1000;
 
 async function fetchData(): Promise<tickerPacket> {
     console.debug("Requesting data from server...");
