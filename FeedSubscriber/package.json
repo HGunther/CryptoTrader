@@ -6,6 +6,7 @@
   "dependencies": {
     "@types/zeromq": "^4.6.2",
     "kraken-api": "^1.0.0",
+    "typescript": "^3.7.2",
     "zeromq": "^5.2.0"
   },
   "devDependencies": {

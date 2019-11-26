@@ -16,6 +16,7 @@
     "@types/node": "^12.12.12",
     "@types/zeromq": "^4.6.2",
     "mongodb": "^3.3.4",
+    "typescript": "^3.7.2",
     "zeromq": "^5.2.0"
   }
 }
