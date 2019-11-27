@@ -55,7 +55,7 @@ function doAThingWithData(data: tickerPacket): void {
     let time = new Time();
     time.setYear(now.getFullYear());
     time.setMonth(now.getMonth());
-    time.setDay(now.getDay());
+    time.setDay(now.getDate());
     time.setHour(now.getHours());
     time.setMinute(now.getMinutes());
     time.setSecond(now.getSeconds());
